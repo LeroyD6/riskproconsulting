@@ -1,0 +1,167 @@
+/* About Us component specific styles */
+
+.about-section {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.about-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.about-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.about-card p {
+  color: #111827;
+  line-height: 1.8;
+  font-size: 1.125rem;
+  margin-bottom: 0;
+}
+
+.about-card p.mt-3 {
+  margin-top: 1rem;
+}
+
+.about-features-grid {
+  margin-top: 2rem;
+}
+
+.about-feature-card {
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.about-feature-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.about-feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.about-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-feature-list li {
+  color: #111827;
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+/* Dark mode about styles */
+[data-bs-theme="dark"] .about-title {
+  color: #ffffff;
+}
+
+/* Bootstrap Card Enhancements with Glass Effect */
+.about-section .card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
+  transition: all 0.3s ease !important;
+}
+
+.about-section .card:hover {
+  transform: translateY(-6px) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+}
+
+.about-section .card-title {
+  transition: color 0.3s ease;
+}
+
+.about-section .card:hover .card-title {
+  color: #2563eb !important;
+}
+
+[data-bs-theme="dark"] .about-card {
+  background: rgba(31, 41, 55, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .about-card:hover {
+  background: rgba(31, 41, 55, 0.9);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+[data-bs-theme="dark"] .about-card p {
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .about-feature-card {
+  background: rgba(31, 41, 55, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] .about-feature-card:hover {
+  background: rgba(31, 41, 55, 0.9);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+[data-bs-theme="dark"] .about-feature-list li {
+  color: #ffffff;
+}
+
+/* Dark mode Bootstrap cards */
+[data-bs-theme="dark"] .about-section .card {
+  background: rgba(31, 41, 55, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-bs-theme="dark"] .about-section .card:hover {
+  background: rgba(31, 41, 55, 0.9) !important;
+  border: 1px solid rgba(96, 165, 250, 0.3) !important;
+}
+
+[data-bs-theme="dark"] .about-section .card-text {
+  color: #ffffff !important;
+}
