@@ -14,19 +14,11 @@ const Hero = ({ setCurrentPage }) => {
       </div>
 
       <div className="hero-content">
-        <img
-          src="/RiskPro.PNG"
-          alt="Risk Pro Consulting Logo"
-          className="hero-logo d-none d-md-block"
-        />
+        <img src="./RiskPro.PNG" alt="Risk Pro Consulting Logo" className="hero-logo" />
         <h1 className="hero-title d-none d-md-block">Risk Pro Consulting</h1>
         <h1 className="hero-title-mobile d-md-none">Risk Pro Consulting</h1>
-        <p className="hero-subtitle d-none d-md-block">
-          Safer Systems. Smarter Solutions.
-        </p>
-        <p className="hero-subtitle-mobile d-md-none">
-          Safer Systems. Smarter Solutions.
-        </p>
+        <p className="hero-subtitle d-none d-md-block">Safer Systems. Smarter Solutions.</p>
+        <p className="hero-subtitle-mobile d-md-none">Safer Systems. Smarter Solutions.</p>
         <button onClick={() => setCurrentPage("services")} className="hero-cta-button">
           Explore Our Services
         </button>

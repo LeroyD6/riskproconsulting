@@ -54,13 +54,26 @@
   display: flex;
   align-items: center;
   color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+/* Ensure consistent icon sizing on mobile */
+@media (max-width: 767px) {
+  .contact-info-item {
+    align-items: flex-start;
+  }
+
+  .contact-info-icon {
+    min-width: 28px;
+    margin-top: 0.125rem;
+  }
 }
 
 .contact-info-icon {
   color: #3b82f6;
   margin-right: 0.75rem;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 .contact-social-icon {

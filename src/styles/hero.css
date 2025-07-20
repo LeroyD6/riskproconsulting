@@ -33,19 +33,18 @@
 }
 
 .hero-logo {
-  height: 10rem;
+  height: 6rem;
   width: auto;
   margin: 0 auto 1rem auto;
   animation: fadeInFromBottom 0.8s ease-out forwards;
   border-radius: 0.75rem;
 }
 
-.hero-logo-mobile {
-  height: 6rem;
-  width: auto;
-  margin: 0 auto 1rem auto;
-  animation: fadeInFromBottom 0.8s ease-out forwards;
-  border-radius: 0.75rem;
+/* Make logo larger on medium screens and up */
+@media (min-width: 768px) {
+  .hero-logo {
+    height: 10rem;
+  }
 }
 
 .hero-title {

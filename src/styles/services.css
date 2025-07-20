@@ -16,7 +16,7 @@
 .services-section-title {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #011a42;
+  color: #001233; /* Darker navy blue */
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -151,6 +151,10 @@
 
 /* Dark mode services styles */
 [data-bs-theme="dark"] .services-title {
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .services-section-title {
   color: #ffffff;
 }
 

@@ -19,11 +19,11 @@ const Navbar = ({ setCurrentPage }) => {
         {/* Logo */}
         <div className="d-flex align-items-center">
           <img
-            src="/RiskPro.PNG"
+            src="./RiskPro.PNG"
             alt="Risk Pro Consulting Logo"
             className="navbar-brand-logo me-3"
           />
-          <span className="fs-4 fw-bold text-dark">Risk Pro Consulting</span>
+          <span className="company-name fw-bold">Risk Pro Consulting</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -139,10 +139,8 @@ const Navbar = ({ setCurrentPage }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`d-md-none ${isOpen ? "d-block" : "d-none"} navbar-glass pb-3 transition-all`}
-      >
-        <div className="d-flex flex-column align-items-center">
+      <div className={`mobile-nav-menu d-md-none ${isOpen ? "mobile-menu-open" : ""}`}>
+        <div className="mobile-nav-menu-inner">
           {navItems.map((item) => (
             <a
               key={item.name}
@@ -151,7 +149,7 @@ const Navbar = ({ setCurrentPage }) => {
                 setCurrentPage(item.page);
                 setIsOpen(false);
               }}
-              className="navbar-mobile-menu-link d-block py-2"
+              className="navbar-mobile-menu-link"
             >
               {item.name}
             </a>

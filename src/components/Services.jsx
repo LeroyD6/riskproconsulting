@@ -6,7 +6,7 @@ const Services = () => {
     {
       title: "Risk & Compliance Advisory",
       description:
-        "Comprehensive audits and assessments to ensure full compliance with health, safety, and environmental regulations.",
+        "Comprehensive audits and assessments to ensure full compliance with health and safety regulations.",
       details: [
         "OHS audits",
         "SANS compliance",

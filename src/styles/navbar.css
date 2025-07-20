@@ -19,6 +19,20 @@
   width: auto;
 }
 
+/* Responsive company name */
+.company-name {
+  font-size: 1.25rem;
+  color: #111827;
+  transition: all 0.3s ease;
+}
+
+/* Larger size on desktop */
+@media (min-width: 768px) {
+  .company-name {
+    font-size: 1.5rem;
+  }
+}
+
 .navbar-theme-toggle {
   background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
   border: none;
@@ -117,28 +131,68 @@
   color: #3b82f6;
 }
 
-.navbar-mobile-menu {
-  background-color: #ffffff;
-  transition: all 0.3s ease;
+.mobile-nav-menu {
+  position: fixed;
+  top: 4rem; /* Adjust based on your navbar height */
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-open {
+  height: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.mobile-nav-menu-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0;
 }
 
 .navbar-mobile-menu-link {
   color: #374151;
   text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  padding: 0.75rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  margin: 0.25rem 0;
 }
 
 .navbar-mobile-menu-link:hover {
   color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.05);
 }
 
 .navbar-mobile-toggle {
   border: none;
+  background: transparent;
   color: #6b7280;
   padding: 0.5rem;
-  transition: color 0.3s ease;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.navbar-mobile-toggle:hover {
+  color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
 }
 
 .navbar-mobile-toggle svg {
@@ -233,8 +287,8 @@
   animation: sunToMoon 0.5s ease-in-out;
 }
 
-[data-bs-theme="dark"] .navbar-mobile-menu {
-  background-color: #1f2937;
+[data-bs-theme="dark"] .mobile-nav-menu {
+  background-color: rgba(31, 41, 55, 0.95);
 }
 
 [data-bs-theme="dark"] .navbar-nav-link {
@@ -251,6 +305,11 @@
 
 [data-bs-theme="dark"] .navbar-mobile-menu-link:hover {
   color: #60a5fa;
+  background-color: rgba(96, 165, 250, 0.1);
+}
+
+[data-bs-theme="dark"] .company-name {
+  color: #ffffff;
 }
 
 [data-bs-theme="dark"] .navbar-glass {
