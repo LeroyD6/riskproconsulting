@@ -9,7 +9,10 @@ const AboutUs = () => {
       {/* Vision and Mission Cards */}
       <div className="row g-4 mb-5">
         <div className="col-lg-6">
-          <div className="card h-100 shadow-custom border-0">
+          <div
+            className="card h-100 shadow-custom border-0 fade-in"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="card-body">
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">Our Vision</h3>
               <p className="card-text text-dark lh-lg fs-5">
@@ -21,12 +24,16 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="col-lg-6">
-          <div className="card h-100 shadow-custom border-0">
+          <div
+            className="card h-100 shadow-custom border-0 fade-in"
+            style={{ animationDelay: "0.4s" }}
+          >
             <div className="card-body">
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">Our Mission</h3>
               <p className="card-text text-dark lh-lg fs-5">
                 Risk Pro Consulting empowers businesses by offering comprehensive risk management,
-                safety compliance, and security consulting services tailored to all industries, thereby ensuring operational continuity and efficiency.
+                safety compliance, and security consulting services tailored to all industries,
+                thereby ensuring operational continuity and efficiency.
               </p>
             </div>
           </div>
@@ -36,7 +43,7 @@ const AboutUs = () => {
       {/* Founder Background Card */}
       <div className="row mb-5">
         <div className="col-12">
-          <div className="card shadow-custom border-0">
+          <div className="card shadow-custom border-0 fade-in" style={{ animationDelay: "0.6s" }}>
             <div className="card-body">
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">
                 Founder Background - Jacques Botha

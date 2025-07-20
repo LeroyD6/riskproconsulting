@@ -108,7 +108,10 @@ const Services = () => {
         <div className="row g-4">
           {coreServices.map((service, index) => (
             <div key={index} className="col-lg-4 col-md-6">
-              <div className="services-card">
+              <div
+                className="services-card fade-in"
+                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+              >
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>
                 <ul className="services-detail-list">
@@ -128,7 +131,10 @@ const Services = () => {
         <div className="row g-4">
           {pricingPackages.map((pkg, index) => (
             <div key={index} className="col-lg-4 col-md-6">
-              <div className="pricing-card">
+              <div
+                className="pricing-card fade-in"
+                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+              >
                 <div>
                   <h4>{pkg.name}</h4>
                   <p className="pricing-ideal-for">Ideal For: {pkg.idealFor}</p>

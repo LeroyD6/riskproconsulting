@@ -38,7 +38,8 @@ const App = () => {
       setDarkMode(isDark);
     };
 
-    // Initial check
+    // Initial check - force light mode by default
+    document.documentElement.setAttribute("data-bs-theme", "light");
     checkDarkMode();
 
     // Create observer to watch for attribute changes

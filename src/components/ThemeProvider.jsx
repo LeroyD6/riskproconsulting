@@ -8,20 +8,12 @@ const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("light"); // Default theme is light
 
   useEffect(() => {
-    // Check local storage for theme preference
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.body.classList.toggle("dark-mode", storedTheme === "dark");
-      document.documentElement.classList.toggle("dark-mode", storedTheme === "dark");
-      document.documentElement.setAttribute("data-bs-theme", storedTheme);
-    } else {
-      // Ensure light theme is properly set when no stored theme
-      document.body.classList.remove("dark-mode");
-      document.documentElement.classList.remove("dark-mode");
-      document.documentElement.setAttribute("data-bs-theme", "light");
-      localStorage.setItem("theme", "light");
-    }
+    // Always set light theme as default
+    document.body.classList.remove("dark-mode");
+    document.documentElement.classList.remove("dark-mode");
+    document.documentElement.setAttribute("data-bs-theme", "light");
+    localStorage.setItem("theme", "light");
+    setTheme("light");
   }, []);
 
   const toggleTheme = () => {
