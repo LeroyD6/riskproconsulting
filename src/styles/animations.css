@@ -107,11 +107,11 @@
 }
 
 .animate-pulse-slow-delay {
-  animation: pulseSlowDelay 10s infinite ease-in-out 2s;
+  animation: pulseSlowDelay 10s infinite ease-in-out 4s;
 }
 
 .animate-pulse-slow-reverse {
-  animation: pulseSlowReverse 10s infinite ease-in-out 4s;
+  animation: pulseSlowReverse 10s infinite ease-in-out 8s;
 }
 
 .animate-pulse-slower {
