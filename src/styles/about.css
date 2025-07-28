@@ -32,6 +32,16 @@
   border-color: rgba(59, 130, 246, 0.3);
 }
 
+.founder {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .about-card h3 {
   font-size: 1.5rem;
   font-weight: 600;

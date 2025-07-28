@@ -48,6 +48,11 @@ const AboutUs = () => {
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">
                 Founder Background - Jacques Botha
               </h3>
+              <img
+                src="./founder.jpg"
+                alt="Founder - Jacques Botha"
+                className="founder img-fluid mb-4"
+              />
               <p className="card-text text-dark lh-lg fs-5 mb-3">
                 With extensive experience in managing site safety and security operations, Jacques
                 Botha brings a strong foundation in engineering coupled with hands-on leadership in
@@ -63,9 +68,6 @@ const AboutUs = () => {
                 (SOPs) for both operational and engineering teams, fostering a culture of safety and
                 accountability. This strategic focus has consistently strengthened workplace safety
                 practices and operational resilience.
-              </p>
-              <p className="card-text text-dark lh-lg fs-5">
-                <strong>Professional membership:</strong> SAIOSH, PSIRA.
               </p>
             </div>
           </div>
