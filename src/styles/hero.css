@@ -4,7 +4,7 @@
   position: relative;
   background: linear-gradient(to right, #2563eb, #1d4ed8);
   color: white;
-  min-height: calc(100vh - 200px); /* Full viewport minus space for navbar and footer */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;

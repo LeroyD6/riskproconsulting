@@ -85,8 +85,19 @@ const App = () => {
         }}
       >
         <Navbar setCurrentPage={setCurrentPage} />
-        <main className="flex-grow-1">{renderPage()}</main>
-        <Footer />
+        {isHomePage ? (
+          <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", flex: 1 }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+              <Hero setCurrentPage={setCurrentPage} />
+            </div>
+            <Footer />
+          </div>
+        ) : (
+          <>
+            <main className="flex-grow-1">{renderPage()}</main>
+            <Footer />
+          </>
+        )}
       </div>
     </ThemeProvider>
   );
