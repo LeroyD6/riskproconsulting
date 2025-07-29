@@ -31,6 +31,16 @@
     width: auto;
     min-width: 90px;
   }
+  /* Move theme toggle to top right on mobile */
+  .navbar-theme-toggle {
+    position: fixed !important;
+    top: 0.75rem;
+    right: 1rem;
+    z-index: 2000;
+  }
+  .navbar-container {
+    padding-right: 3.5rem !important; /* Make space for the toggle */
+  }
 }
 
 .navbar-brand-logo {
