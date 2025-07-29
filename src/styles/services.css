@@ -37,11 +37,15 @@
   transition: all 0.3s ease;
 }
 
-.services-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4);
-  border-color: rgba(59, 130, 246, 0.3);
+.services-card:hover,
+.services-card:focus {
+  transform: translateY(-18px) scale(1.03);
+  background: rgba(255, 255, 255, 0.99);
+  box-shadow: 0 24px 48px 0 rgba(31, 38, 135, 0.45), 0 2px 8px 0 rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
+  cursor: pointer;
+  will-change: transform, box-shadow;
+  z-index: 2;
 }
 
 .services-card h4 {
@@ -87,11 +91,15 @@
   flex-direction: column;
 }
 
-.pricing-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4);
-  border-color: rgba(59, 130, 246, 0.3);
+.pricing-card:hover,
+.pricing-card:focus {
+  transform: translateY(-18px) scale(1.03);
+  background: rgba(255, 255, 255, 0.99);
+  box-shadow: 0 24px 48px 0 rgba(31, 38, 135, 0.45), 0 2px 8px 0 rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
+  cursor: pointer;
+  will-change: transform, box-shadow;
+  z-index: 2;
 }
 
 .pricing-card h4 {

@@ -16,15 +16,37 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would send this data to a backend server.
-    // For this example, we'll just simulate a successful submission.
-    console.log("Form submitted:", formData);
-    setMessage("Thank you for your message! We will get back to you shortly.");
-    setMessageType("success");
-    setFormData({ name: "", email: "", subject: "", message: "" }); // Clear form
-    setTimeout(() => setMessage(""), 5000); // Clear message after 5 seconds
+    setMessage("");
+    setMessageType("");
+    try {
+      const response = await fetch("https://formspree.io/f/yourformid", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+      if (response.ok) {
+        setMessage("Thank you for your message! We will get back to you shortly.");
+        setMessageType("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setMessage("Sorry, there was a problem sending your message. Please try again later.");
+        setMessageType("error");
+      }
+    } catch (error) {
+      setMessage("Sorry, there was a problem sending your message. Please try again later.");
+      setMessageType("error");
+    }
+    setTimeout(() => setMessage(""), 5000);
   };
 
   return (
@@ -95,47 +117,37 @@ const Contact = () => {
                 <span>Glenwood, Durban, South Africa</span>
               </div>
 
-              <div className="mt-4 d-flex gap-3">
-                <a
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon-link"
-                >
-                  <svg
-                    className="contact-social-icon"
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
+              <div className="Facebook-link">
+                <div className="contact-info-item">
+                  <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      color: "inherit",
+                    }}
                   >
-                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"></path>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon-link"
-                >
-                  <svg
-                    className="contact-social-icon"
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </a>
+                    <svg
+                      className="contact-info-icon"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ marginRight: "0.75rem" }}
+                    >
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"></path>
+                    </svg>
+                    <span>Risk Pro Consulting</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

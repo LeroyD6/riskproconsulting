@@ -54,8 +54,7 @@ const AboutUs = () => {
                 className="founder img-fluid mb-4"
               />
               <p className="card-text text-dark lh-lg fs-5 mb-3">
-                With extensive experience in managing site safety and security operations, Jacques
-                Botha brings a strong foundation in engineering coupled with hands-on leadership in
+                With extensive experience in managing site safety and security operations, our Director brings a strong foundation in engineering coupled with hands-on leadership in
                 compliance and risk management. His career began in engineering, where he developed
                 a deep understanding of technical systems before transitioning into site management
                 roles. Over the years, he has overseen multiple sites, ensuring full compliance with
@@ -98,12 +97,15 @@ const AboutUs = () => {
               <h3 className="card-title fs-4 fw-semibold text-primary mb-3">
                 Why Choose Risk Pro Consulting?
               </h3>
+              <p>
+                Because we:
+              </p>
               <ul className="list-unstyled text-dark mb-0">
-                <li className="mb-2">• Deep compliance knowledge across various industries.</li>
-                <li className="mb-2">• Industry-tailored services and solutions.</li>
-                <li className="mb-2">• Customised reports and site-specific recommendations.</li>
+                <li className="mb-2">• Possess deep compliance knowledge across various industries.</li>
+                <li className="mb-2">• Offer industry-tailored services and solutions.</li>
+                <li className="mb-2">• Provide customised reports and site-specific recommendations.</li>
                 <li className="mb-2">
-                  • Proven track record in risk management and operational resilience.
+                  • Have a proven track record in risk management and operational resilience.
                 </li>
               </ul>
             </div>

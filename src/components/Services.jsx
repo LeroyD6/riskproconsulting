@@ -35,7 +35,7 @@ const Services = () => {
         "Induction design and training",
         "Safety talks",
         "Facilitate on-site factory safety meetings",
-        "Facilitate on-site fire drills or any other specific training required",
+        "Facilitate on-site fire drills or any other specific training required.",
       ],
     },
     {
@@ -62,30 +62,25 @@ const Services = () => {
   const pricingPackages = [
     {
       name: "Monthly Retainer",
-      idealFor: "Midsize companies",
       includes:
         "Spend one day a month on site to do monthly safety check-ins, report for improvements / deviations or any other assistance required",
     },
     {
       name: "Full House Defender",
-      idealFor: "Midsize companies",
-      includes: "Full safety, security, and CCTV audit (2 days)",
+      includes: "Full safety, security, and CCTV audit.",
     },
     {
       name: "CCTV Guardian",
-      idealFor: "Small and midsize companies",
       includes:
-        "Conduct a comprehensive CCTV system audit to evaluate coverage, functionality, compliance, and integration, and to provide recommendations for system optimisation and risk mitigation (1 day)",
+        "Conduct a comprehensive CCTV system audit to evaluate coverage, functionality, compliance, and integration, and to provide recommendations for system optimisation and risk mitigation.",
     },
     {
       name: "Safety and Security Guardian",
-      idealFor: "Small and midsize companies",
       includes:
-        "Conduct a comprehensive site-specific safety and security audit and provide recommendations for optimal safety and security practices (2 days)",
+        "Conduct a comprehensive site-specific safety and security audit and provide recommendations for optimal safety and security practices.",
     },
     {
       name: "Contractor Management",
-      idealFor: "Small and midsize companies",
       includes:
         "Manage contractors' safety and ensure that they have a valid safety file. Manage contractor activities on site. Manage maintenance work/upgrades on site with project timelines.",
     },
@@ -137,7 +132,6 @@ const Services = () => {
               >
                 <div>
                   <h4>{pkg.name}</h4>
-                  <p className="pricing-ideal-for">Ideal For: {pkg.idealFor}</p>
                   <p className="pricing-description">{pkg.includes}</p>
                 </div>
                 <div className="mt-auto">
