@@ -41,6 +41,14 @@
   .navbar-container {
     padding-right: 3.5rem !important; /* Make space for the toggle */
   }
+  .navbar-mobile-toggle {
+    position: fixed !important;
+    left: 50%;
+    top: 0.75rem;
+    transform: translateX(-50%);
+    z-index: 2001;
+    margin-left: 0;
+  }
 }
 
 .navbar-brand-logo {
