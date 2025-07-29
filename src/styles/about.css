@@ -1,3 +1,9 @@
+/* Smooth card hover transitions */
+.card,
+.shadow-custom {
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 /* About Us component specific styles */
 
 .about-section {
@@ -17,7 +23,8 @@
   transform: translateY(-6px);
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4);
-  border-color: rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 131, 246, 0.925);
+  border-width: 2px;
 }
 
 .founder {

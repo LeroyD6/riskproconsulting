@@ -21,7 +21,7 @@ const Contact = () => {
     setMessage("");
     setMessageType("");
     try {
-      const response = await fetch("https://formspree.io/f/yourformid", {
+      const response = await fetch("https://formspree.io/f/xldlnzor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ const Contact = () => {
               <div className="Facebook-link">
                 <div className="contact-info-item">
                   <a
-                    href="https://www.facebook.com/"
+                    href="https://www.facebook.com/profile.php?id=61578627070530#"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{

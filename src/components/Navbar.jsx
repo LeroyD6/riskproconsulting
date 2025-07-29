@@ -8,8 +8,8 @@ const Navbar = ({ setCurrentPage }) => {
 
   const navItems = [
     { name: "Home", page: "home" },
-    { name: "About Us", page: "about" },
     { name: "Services", page: "services" },
+    { name: "About Us", page: "about" },
     { name: "Contact", page: "contact" },
   ];
 

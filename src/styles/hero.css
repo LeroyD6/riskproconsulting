@@ -53,7 +53,6 @@
   line-height: 1;
   margin-bottom: 1rem;
   animation: fadeInFromBottom 0.8s ease-out forwards;
-  animation-delay: 0.2s;
 }
 
 .hero-title-mobile {
@@ -62,7 +61,6 @@
   line-height: 1;
   margin-bottom: 1rem;
   animation: fadeInFromBottom 0.8s ease-out forwards;
-  animation-delay: 0.2s;
 }
 
 .hero-subtitle {
@@ -95,7 +93,8 @@
 
 .hero-cta-button:hover {
   transform: scale(1.05);
-  background-color: #f9fafb;
+  background-color: #a8a8aa;
+  color: #ffffff;
 }
 
 /* Background animation circles */
@@ -151,5 +150,6 @@
 }
 
 [data-bs-theme="dark"] .hero-cta-button:hover {
-  background-color: #e5e7eb;
+  background-color: #1c5cdb;
+  color: #ffffff;
 }
