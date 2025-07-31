@@ -84,12 +84,15 @@
     color: var(--bs-body-color);
   }
 
-  /* Add a solid background container for mobile */
+  /* Add a semi-transparent background container with rounded edges for mobile */
   .services-section-container {
     padding: 1.5rem 1rem;
-    margin-bottom: 3rem;
-    background-color: var(--bs-body-bg);
-    border-radius: 0;
+    margin: 0 0.5rem 3rem 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
 
   /* Ensure heading stands out properly */
@@ -272,8 +275,10 @@
   }
 
   [data-bs-theme="dark"] .services-section-container {
-    background-color: var(--bs-dark-bg-subtle);
-    box-shadow: none;
+    background-color: rgba(31, 41, 55, 0.85);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
 }
 
