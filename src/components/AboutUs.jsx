@@ -44,30 +44,38 @@ const AboutUs = () => {
       <div className="row mb-5">
         <div className="col-12">
           <div className="card shadow-custom border-0 fade-in" style={{ animationDelay: "0.6s" }}>
-            <div className="card-body">
-              <h3 className="card-title fs-2 fw-semibold text-primary mb-4">
-                Founder Background - Jacques Botha
-              </h3>
-              <img
-                src="./founder.jpg"
-                alt="Founder - Jacques Botha"
-                className="founder img-fluid mb-4"
-              />
-              <p className="card-text text-dark lh-lg fs-5 mb-3">
-                With extensive experience in managing site safety and security operations, our Director brings a strong foundation in engineering coupled with hands-on leadership in
-                compliance and risk management. His career began in engineering, where he developed
-                a deep understanding of technical systems before transitioning into site management
-                roles. Over the years, he has overseen multiple sites, ensuring full compliance with
-                health, safety, and security regulations.
-              </p>
-              <p className="card-text text-dark lh-lg fs-5 mb-3">
-                His responsibilities have included managing complex security operations during
-                high-risk events such as strikes, emergency incidents, and on-site investigations.
-                He has also led the development and implementation of Standard Operating Procedures
-                (SOPs) for both operational and engineering teams, fostering a culture of safety and
-                accountability. This strategic focus has consistently strengthened workplace safety
-                practices and operational resilience.
-              </p>
+            <div className="card-body p-lg-5">
+              <div className="row g-5 align-items-center">
+                <div className="col-lg-4 text-center">
+                  <img
+                    src="./founder.jpg"
+                    alt="Founder - Jacques Botha"
+                    className="founder img-fluid"
+                  />
+                </div>
+                <div className="col-lg-8">
+                  <h3 className="card-title fs-2 fw-semibold text-primary mb-4">
+                    Founder Background - Jacques Botha
+                  </h3>
+                  <p className="card-text text-dark lh-lg fs-5 mb-3">
+                    With extensive experience in managing site safety and security operations, our
+                    Director brings a strong foundation in engineering coupled with hands-on
+                    leadership in compliance and risk management. His career began in engineering,
+                    where he developed a deep understanding of technical systems before
+                    transitioning into site management roles. Over the years, he has overseen
+                    multiple sites, ensuring full compliance with health, safety, and security
+                    regulations.
+                  </p>
+                  <p className="card-text text-dark lh-lg fs-5 mb-0">
+                    His responsibilities have included managing complex security operations during
+                    high-risk events such as strikes, emergency incidents, and on-site
+                    investigations. He has also led the development and implementation of Standard
+                    Operating Procedures (SOPs) for both operational and engineering teams,
+                    fostering a culture of safety and accountability. This strategic focus has
+                    consistently strengthened workplace safety practices and operational resilience.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -97,13 +105,15 @@ const AboutUs = () => {
               <h3 className="card-title fs-4 fw-semibold text-primary mb-3">
                 Why Choose Risk Pro Consulting?
               </h3>
-              <p>
-                Because we:
-              </p>
+              <p>Because we:</p>
               <ul className="list-unstyled text-dark mb-0">
-                <li className="mb-2">• Possess deep compliance knowledge across various industries.</li>
+                <li className="mb-2">
+                  • Possess deep compliance knowledge across various industries.
+                </li>
                 <li className="mb-2">• Offer industry-tailored services and solutions.</li>
-                <li className="mb-2">• Provide customised reports and site-specific recommendations.</li>
+                <li className="mb-2">
+                  • Provide customised reports and site-specific recommendations.
+                </li>
                 <li className="mb-2">
                   • Have a proven track record in risk management and operational resilience.
                 </li>

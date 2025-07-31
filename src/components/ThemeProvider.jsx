@@ -5,26 +5,23 @@ const ThemeContext = createContext();
 
 // Theme Provider component
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light"); // Default theme is light
+  // Check for saved theme preference or use light as default
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme || "light";
+  });
 
   useEffect(() => {
-    // Always set light theme as default
-    document.body.classList.remove("dark-mode");
-    document.documentElement.classList.remove("dark-mode");
-    document.documentElement.setAttribute("data-bs-theme", "light");
-    localStorage.setItem("theme", "light");
-    setTheme("light");
-  }, []);
+    // Apply the theme when component mounts or theme changes
+    const isDark = theme === "dark";
+    document.body.classList.toggle("dark-mode", isDark);
+    document.documentElement.classList.toggle("dark-mode", isDark);
+    document.documentElement.setAttribute("data-bs-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === "light" ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      document.body.classList.toggle("dark-mode", newTheme === "dark");
-      document.documentElement.classList.toggle("dark-mode", newTheme === "dark");
-      document.documentElement.setAttribute("data-bs-theme", newTheme);
-      return newTheme;
-    });
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;

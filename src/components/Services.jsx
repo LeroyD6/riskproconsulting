@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/services.css";
 
 const Services = () => {
+  const [expandedService, setExpandedService] = useState(null);
+
+  const handleToggleDetails = (index) => {
+    setExpandedService(expandedService === index ? null : index);
+  };
+
   const coreServices = [
     {
       title: "Risk & Compliance Advisory",
@@ -21,7 +27,7 @@ const Services = () => {
     {
       title: "Security Systems Consulting",
       description:
-        "Expert evaluation and optimization of your security and CCTV infrastructure for maximum coverage and functionality.",
+        "Expert evaluation and optimisation of your security and CCTV infrastructure for maximum coverage and functionality.",
       details: [
         "Conduct comprehensive Security and CCTV system audits to evaluate coverage, functionality, compliance, and integration",
         "Provide recommendations for system optimisation and risk mitigation",
@@ -30,7 +36,7 @@ const Services = () => {
     {
       title: "Training and Workshops",
       description:
-        "Customized training programs and workshops to enhance safety awareness and operational readiness.",
+        "Customised training programs and workshops to enhance safety awareness and operational readiness.",
       details: [
         "Induction design and training",
         "Safety talks",
@@ -45,7 +51,7 @@ const Services = () => {
       details: [
         "Plan or manage project work",
         "Site maintenance contracting work",
-        "CCTV / security upgrades on sites",
+        "CCTV / security upgrades on-site",
       ],
     },
     {
@@ -54,7 +60,7 @@ const Services = () => {
         "Ongoing support and regular check-ins to maintain compliance and continuously improve safety standards.",
       details: [
         "Spend one day a month on site to do monthly safety check-ins",
-        "Report for improvements / deviations or any other assistance required",
+        "Report for improvements / deviations or any other assistance required.",
       ],
     },
   ];
@@ -63,7 +69,7 @@ const Services = () => {
     {
       name: "Monthly Retainer",
       includes:
-        "Spend one day a month on site to do monthly safety check-ins, report for improvements / deviations or any other assistance required",
+        "Spend one day a month on site to do monthly safety check-ins, report for improvements / deviations or any other assistance required.",
     },
     {
       name: "Full House Defender",
@@ -86,9 +92,9 @@ const Services = () => {
     },
   ];
 
-  const targetMarkets = [
+  const sectors = [
     "Industrial & manufacturing facilities",
-    "Agricultural",
+    "Agricultural Sector",
     "Logistics & warehousing companies",
     "Schools, clinics, retail chains",
   ];
@@ -100,20 +106,37 @@ const Services = () => {
       {/* Core Services Section */}
       <div className="services-section-container">
         <h3 className="services-section-title">Core Services</h3>
+        <p className="services-intro">
+          At Risk Pro Consulting, we offer comprehensive safety and security solutions tailored to
+          your specific needs. Our expertise ensures regulatory compliance, risk mitigation, and
+          peace of mind for your organization. Explore our core services below:
+        </p>
         <div className="row g-4">
           {coreServices.map((service, index) => (
-            <div key={index} className="col-lg-4 col-md-6">
-              <div
-                className="services-card fade-in"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-              >
-                <h4>{service.title}</h4>
-                <p>{service.description}</p>
-                <ul className="services-detail-list">
-                  {service.details.map((detail, i) => (
-                    <li key={i}>• {detail}</li>
-                  ))}
-                </ul>
+            <div className="col-md-6 col-lg-4 d-flex align-items-stretch" key={index}>
+              <div className="card services-card h-100">
+                <div className="card-body d-flex flex-column">
+                  <h4 className="card-title">{service.title}</h4>
+                  <p className="card-text flex-grow-1">{service.description}</p>
+                  <div className="mt-auto">
+                    <button
+                      className="btn btn-outline-primary btn-sm"
+                      onClick={() => handleToggleDetails(index)}
+                      aria-expanded={expandedService === index}
+                    >
+                      {expandedService === index ? "Hide Details" : "Show Details"}
+                    </button>
+                  </div>
+                </div>
+                {expandedService === index && (
+                  <div className="card-footer services-detail-list">
+                    <ul className="list-unstyled mb-0">
+                      {service.details.map((detail, i) => (
+                        <li key={i}>• {detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -123,6 +146,11 @@ const Services = () => {
       {/* Pricing Packages Section */}
       <div className="services-section-container">
         <h3 className="services-section-title">Service Packages</h3>
+        <p className="services-intro">
+          Choose from our carefully designed service packages that address specific safety and
+          security needs. Each package is structured to deliver maximum value while addressing your
+          unique requirements:
+        </p>
         <div className="row g-4">
           {pricingPackages.map((pkg, index) => (
             <div key={index} className="col-lg-4 col-md-6">
@@ -144,13 +172,17 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Target Markets Section */}
+      {/* Sectors Section */}
       <div>
-        <h3 className="services-section-title">Our Target Markets</h3>
-        <div className="target-markets-container">
-          {targetMarkets.map((market, index) => (
-            <span key={index} className="target-market-badge">
-              {market}
+        <h3 className="services-section-title">Sectors We Work With</h3>
+        <p className="services-intro">
+          Our expertise spans across various industries, providing specialized safety and security
+          solutions for the following sectors:
+        </p>
+        <div className="sectors-container">
+          {sectors.map((sector, index) => (
+            <span key={index} className="sector-badge">
+              {sector}
             </span>
           ))}
         </div>
