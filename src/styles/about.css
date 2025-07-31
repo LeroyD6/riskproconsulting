@@ -28,7 +28,7 @@
   display: block;
   width: 80px;
   height: 4px;
-  background-color: #000000; /* Dark blue for the underline as well */
+  background-color: var(--bs-body-color); /* Use theme variable instead of hardcoded color */
   margin: 0.75rem auto 3rem;
   border-radius: 2px;
 }
@@ -78,7 +78,7 @@
   display: block;
   width: 60px;
   height: 3px;
-  background-color: #6c757d; /* Medium grey for the underline */
+  background-color: var(--bs-secondary); /* Use theme variable instead of hardcoded color */
   margin: 0.5rem auto 1rem;
   border-radius: 2px;
 }
