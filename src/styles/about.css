@@ -12,11 +12,25 @@
 }
 
 .about-title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  color: #111827;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0b3b70; /* Dark blue for main heading */
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #0b3b70; /* Dark blue for the underline as well */
+  margin: 0.75rem auto 3rem;
+  border-radius: 2px;
 }
 
 .about-card:hover {
@@ -45,8 +59,28 @@
 .about-card h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #3b82f6;
+  color: #343a40; /* Dark grey to match section titles */
   margin-bottom: 1rem;
+}
+
+.about-section-title {
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #343a40; /* Dark grey for subheadings */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.about-section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #6c757d; /* Medium grey for the underline */
+  margin: 0.5rem auto 1rem;
+  border-radius: 2px;
 }
 
 .about-card p {
@@ -110,6 +144,18 @@
 
 .about-section .card:hover .card-title {
   color: #2563eb !important;
+}
+
+[data-bs-theme="dark"] .about-title {
+  color: #4dabf7; /* Light blue for dark mode */
+}
+
+[data-bs-theme="dark"] .about-section-title {
+  color: #e9ecef; /* Light grey for dark mode */
+}
+
+[data-bs-theme="dark"] .about-card h3 {
+  color: #74c0fc; /* Lighter blue for card headings in dark mode */
 }
 
 [data-bs-theme="dark"] .about-card {

@@ -108,7 +108,8 @@ const Services = () => {
         <h3 className="services-section-title">Core Services</h3>
         <p className="services-intro">
           At Risk Pro Consulting, we offer comprehensive safety and security solutions tailored to
-          your specific needs. We assist in achieving compliance, risk mitigation and operational efficiency within your organization. Explore our core services below:
+          your specific needs. We assist in achieving compliance, risk mitigation and operational
+          efficiency within your organization. Explore our core services below:
         </p>
         <div className="row g-4">
           {coreServices.map((service, index) => (
@@ -172,7 +173,7 @@ const Services = () => {
       </div>
 
       {/* Sectors Section */}
-      <div>
+      <div className="services-section-container">
         <h3 className="services-section-title">Sectors We Work With</h3>
         <p className="services-intro">
           Our expertise spans across various industries, providing specialised safety and security

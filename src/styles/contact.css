@@ -6,11 +6,25 @@
 }
 
 .contact-title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  color: var(--bs-body-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0b3b70; /* Dark blue for main heading */
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contact-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #0b3b70; /* Dark blue for the underline as well */
+  margin: 0.75rem auto 3rem;
+  border-radius: 2px;
 }
 
 .contact-card {
@@ -30,10 +44,24 @@
 
 .contact-info-title,
 .contact-form-title {
-  font-size: 1.5rem;
+  font-size: 1.85rem;
   font-weight: 600;
-  color: var(--bs-primary);
-  margin-bottom: 1rem;
+  color: #343a40; /* Dark grey for subheadings */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.contact-info-title::after,
+.contact-form-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #6c757d; /* Medium grey for the underline */
+  margin: 0.5rem auto 1rem;
+  border-radius: 2px;
 }
 
 .contact-info-description {
@@ -67,6 +95,15 @@
 /* Style for textareas to ensure they're large enough */
 textarea.form-control {
   min-height: 150px;
+}
+
+[data-bs-theme="dark"] .contact-title {
+  color: #4dabf7; /* Light blue for dark mode */
+}
+
+[data-bs-theme="dark"] .contact-info-title,
+[data-bs-theme="dark"] .contact-form-title {
+  color: #e9ecef; /* Light grey for dark mode */
 }
 
 [data-bs-theme="dark"] .contact-card {
