@@ -74,15 +74,19 @@
 
 @media (max-width: 768px) {
   .services-intro {
-    padding: 1rem;
+    padding: 0.5rem 0;
     font-size: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
   }
 
   [data-bs-theme="dark"] .services-intro {
-    /* Enhance contrast on small screens in dark mode */
-    background-color: rgba(31, 41, 55, 0.9);
+    /* Remove container styling in dark mode on mobile */
+    background-color: transparent;
+    box-shadow: none;
   }
 }
 
