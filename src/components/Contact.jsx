@@ -69,7 +69,7 @@ const Contact = () => {
       <div className="row g-5">
         {/* Contact Information */}
         <div className="col-lg-5">
-          <div className="contact-card h-100">
+          <div className="contact-card h-100 fade-in" style={{ animationDelay: "0.2s" }}>
             <h3 className="contact-info-title">Get in Touch</h3>
             <p className="contact-info-description">
               We are here to answer any questions you may have about our services. Reach out to us
@@ -164,7 +164,7 @@ const Contact = () => {
 
         {/* Contact Form */}
         <div className="col-lg-7">
-          <div className="contact-card h-100">
+          <div className="contact-card h-100 fade-in" style={{ animationDelay: "0.4s" }}>
             <h3 className="contact-form-title">Send Us a Message</h3>
 
             {message && (

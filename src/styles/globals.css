@@ -25,6 +25,47 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Custom scrollbar styling */
+:root {
+  --scrollbar-width: 10px;
+  --scrollbar-track: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb: rgba(59, 130, 246, 0.5);
+  --scrollbar-thumb-hover: rgba(59, 130, 246, 0.7);
+}
+
+[data-bs-theme="dark"] {
+  --scrollbar-track: rgba(255, 255, 255, 0.05);
+  --scrollbar-thumb: rgba(75, 170, 247, 0.5);
+  --scrollbar-thumb-hover: rgba(75, 170, 247, 0.7);
+}
+
+/* Webkit browsers like Chrome, Safari */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+
+* {
+  /* Only Firefox supports these properties */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
 /* Background SVG for pages */
 body {
   background-color: #ffffff;

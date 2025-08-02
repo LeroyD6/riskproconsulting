@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./index.css";
 
 // Import components
 import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import AboutUs from "./components/AboutUs";
-import Services from "./components/Services";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
+
+// Lazy load page components for better performance
+const Hero = lazy(() => import("./components/Hero"));
+const AboutUs = lazy(() => import("./components/AboutUs"));
+const Services = lazy(() => import("./components/Services"));
+const Contact = lazy(() => import("./components/Contact"));
 
 // Main App Component
 const App = () => {
@@ -44,7 +47,14 @@ const App = () => {
       case "about":
         return <AboutUs />;
       case "services":
-        return <Services />;
+        try {
+          return <Services />;
+        } catch (error) {
+          console.error("Error rendering Services:", error);
+          return (
+            <div className="container py-5">Error loading services. Please try again later.</div>
+          );
+        }
       case "contact":
         return <Contact />;
       default:
@@ -56,10 +66,21 @@ const App = () => {
     <ThemeProvider>
       <div className="d-flex flex-column min-vh-100 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
         <Navbar setCurrentPage={setCurrentPage} />
-        <main className="flex-grow-1">
-          {currentPage === "home" ? <Hero setCurrentPage={setCurrentPage} /> : renderPage()}
-        </main>
+        <Suspense
+          fallback={
+            <div className="d-flex justify-content-center align-items-center py-5">
+              <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          }
+        >
+          <main className="flex-grow-1 position-relative">
+            <div className={`page-container fade-in page-${currentPage}`}>{renderPage()}</div>
+          </main>
+        </Suspense>
         <Footer />
+        <BackToTop />
       </div>
     </ThemeProvider>
   );

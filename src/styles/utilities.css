@@ -1,21 +1,9 @@
 /* Animation utilities */
 .fade-in {
-  animation: fadeIn 0.8s ease-in-out forwards;
+  animation: fadeInFromBottom 0.8s ease-in-out forwards;
   opacity: 0;
   will-change: transform, opacity;
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 @media (max-width: 768px) {
   .section-padding {
@@ -47,6 +35,45 @@
 
 .z-30 {
   z-index: 30;
+}
+
+/* Back to Top Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--bs-primary);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.3s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-to-top-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-bs-theme="dark"] .back-to-top-btn {
+  background: #3b82f6;
 }
 
 /* Common transition utility */

@@ -122,6 +122,29 @@
   z-index: 2;
 }
 
+/* Service Icon Styling */
+.service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.service-icon svg {
+  color: #3b82f6;
+  stroke-width: 2px;
+}
+
+.services-card:hover .service-icon {
+  transform: scale(1.1);
+  background: rgba(59, 130, 246, 0.25);
+}
+
 .services-card h4 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -160,20 +183,21 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1.5rem 2rem;
   height: 100%;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   border-top: 4px solid #3b82f6;
   display: flex;
   flex-direction: column;
+  position: relative;
+  top: 0;
 }
 
 .pricing-card:hover,
 .pricing-card:focus {
-  transform: translateY(-18px) scale(1.03);
+  transform: translateY(-12px);
   background: rgba(255, 255, 255, 0.99);
-  box-shadow: 0 24px 48px 0 rgba(31, 38, 135, 0.45), 0 2px 8px 0 rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 2px 8px 0 rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.7);
   cursor: pointer;
-  will-change: transform, box-shadow;
   z-index: 2;
 }
 
@@ -182,31 +206,56 @@
   font-weight: bold;
   color: #111827;
   margin-bottom: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
 }
 
-.pricing-ideal-for {
+.pricing-card:hover h4 {
   color: #3b82f6;
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+}
+
+.pricing-card h4::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.pricing-card:hover h4::after {
+  width: 100%;
 }
 
 .pricing-description {
   color: #111827;
   margin-bottom: 1.5rem;
   flex-grow: 1;
+  transition: color 0.3s ease;
 }
 
-.pricing-amount {
-  font-size: 1.75rem;
-  font-weight: bold;
-  color: #111827;
-  margin-bottom: 0.5rem;
+.pricing-card:hover .pricing-description {
+  color: #000000;
 }
 
-.pricing-frequency {
-  color: #6b7280;
-  font-size: 0.875rem;
+.pricing-features ul {
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover .pricing-features ul {
+  transform: translateX(6px);
+}
+
+.feature-icon {
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover .feature-icon {
+  transform: scale(1.2);
+  color: #3b82f6;
 }
 
 /* Sectors styles */
@@ -311,15 +360,11 @@
 }
 
 [data-bs-theme="dark"] .pricing-description {
-  color: #ffffff;
+  color: #e9ecef;
 }
 
-[data-bs-theme="dark"] .pricing-amount {
+[data-bs-theme="dark"] .pricing-card:hover .pricing-description {
   color: #ffffff;
-}
-
-[data-bs-theme="dark"] .pricing-frequency {
-  color: #9ca3af;
 }
 
 [data-bs-theme="dark"] .sector-badge {
@@ -330,4 +375,48 @@
 [data-bs-theme="dark"] .sector-badge:hover {
   background-color: rgba(59, 130, 246, 0.3);
   color: #ffffff;
+}
+
+.pricing-features ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.pricing-features ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.feature-icon {
+  color: #3b82f6;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+[data-bs-theme="dark"] .feature-icon {
+  color: #60a5fa;
+}
+
+[data-bs-theme="dark"] .pricing-features ul li {
+  color: #e9ecef;
+}
+
+[data-bs-theme="dark"] .pricing-card:hover .pricing-features ul li {
+  color: #ffffff;
+}
+
+/* Dark mode service icon styling */
+[data-bs-theme="dark"] .service-icon {
+  background: rgba(96, 165, 250, 0.15);
+}
+
+[data-bs-theme="dark"] .service-icon svg {
+  color: #60a5fa;
+}
+
+[data-bs-theme="dark"] .services-card:hover .service-icon {
+  background: rgba(96, 165, 250, 0.25);
 }
