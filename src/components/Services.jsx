@@ -83,6 +83,28 @@ const Services = () => {
       ],
     },
     {
+      name: "Safety First",
+      includes:
+        "Full site safety audit to ensure compliance with safety regulations and identify potential hazards.",
+      features: [
+        "Comprehensive safety assessment",
+        "OHS compliance verification",
+        "Hazard identification",
+        "Improvement recommendations",
+      ],
+    },
+    {
+      name: "Industrial",
+      includes:
+        "Specialized safety services tailored for industrial and manufacturing environments.",
+      features: [
+        "Planned Job Observations",
+        "Machine specific maintenance manuals",
+        "Accident/incident investigations",
+        "Machine safe operating procedures",
+      ],
+    },
+    {
       name: "Full House Defender",
       includes: "Full safety, security, and CCTV audit.",
       features: [
