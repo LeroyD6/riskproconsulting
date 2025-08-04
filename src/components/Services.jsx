@@ -120,7 +120,7 @@ const Services = () => {
         "Conduct a comprehensive CCTV system audit to evaluate coverage, functionality, compliance, and integration, and to provide recommendations for system optimisation and risk mitigation.",
       features: [
         "Camera placement assessment",
-        "Coverage optimization",
+        "Coverage optimisation",
         "System integration check",
         "Vulnerability analysis",
       ],
@@ -287,7 +287,7 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Pricing Packages Section */}
+      {/*Packages Section */}
       <div className="services-section-container fade-in" style={{ animationDelay: "0.3s" }}>
         <h3 className="services-section-title">Service Packages</h3>
         <p className="services-intro">

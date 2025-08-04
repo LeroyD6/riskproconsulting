@@ -29,53 +29,185 @@ Risk Pro Consulting is a modern, responsive website built with React and Bootstr
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- npm or yarn
+- npm (v8 or higher) or yarn (v1.22 or higher)
 
 ### Installation
 
 1. Clone the repository:
 
-   ```
-   git clone https://github.com/yourusername/risk-pro-consulting.git
+   ```bash
+   git clone https://github.com/LeroyD6/riskproconsulting.git
    cd risk-pro-consulting
    ```
 
 2. Install dependencies:
 
-   ```
+   ```bash
    npm install
    ```
 
    or
 
-   ```
+   ```bash
    yarn
    ```
 
 3. Start the development server:
 
-   ```
+   ```bash
    npm run dev
    ```
 
    or
 
-   ```
+   ```bash
    yarn dev
    ```
 
 4. Open your browser and visit `http://localhost:5173`
 
+## Deployment Instructions
+
+### Building for Production
+
+1. Create an optimized production build:
+
+   ```bash
+   npm run build
+   ```
+
+   or
+
+   ```bash
+   yarn build
+   ```
+
+   This will generate a `dist` folder with all optimized files.
+
+2. Preview the production build locally (optional):
+
+   ```bash
+   npm run preview
+   ```
+
+   or
+
+   ```bash
+   yarn preview
+   ```
+
+### Hosting Requirements
+
+#### 1. Node.js Hosting (Recommended)
+
+For platforms like Vercel, Netlify, or similar:
+
+- Simply connect your GitHub repository to the platform
+- Configure the build command as `npm run build` or `yarn build`
+- Set the publish directory to `dist`
+- Ensure environment variables are set if needed
+
+#### 2. Traditional Web Hosting
+
+If deploying to traditional web hosting:
+
+- Upload the contents of the `dist` folder to your web server
+- Ensure your server is configured to serve a single-page application (SPA)
+- Set up proper redirects to route all requests to `index.html`
+
+Example `.htaccess` for Apache servers:
+
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
+
+### Dependency Management
+
+This project uses React 19, which has some specific requirements:
+
+1. Ensure all dependencies are properly installed:
+
+   ```bash
+   npm install
+   ```
+
+2. Key dependencies include:
+
+   - React (v19.0.0)
+   - React DOM (v19.0.0)
+   - Bootstrap (v5.3.7)
+
+3. If encountering any issues with dependencies:
+
+   ```bash
+   npm ci --legacy-peer-deps
+   ```
+
+4. If updating dependencies, be aware that React 19 may have compatibility issues with certain libraries
+
+### Configuration Requirements
+
+1. Make sure the website has proper SSL/TLS certificates for HTTPS
+2. Ensure the server has appropriate CORS settings if connecting to external APIs
+3. Check that the server allows for SVG file serving with proper MIME types
+4. Set appropriate cache headers for static assets
+
+## Troubleshooting
+
+### Common Issues
+
+1. **White screen after deployment**
+
+   - Check browser console for errors
+   - Ensure all path references are relative and don't include absolute URLs
+   - Verify the base URL is correctly set in index.html
+
+2. **Missing styles or images**
+
+   - Make sure all assets were properly copied to the production build
+   - Verify file permissions on the server
+   - Check for case sensitivity issues in file paths (important on Linux servers)
+
+3. **Contact form not working**
+   - Verify the Formspree endpoint is correctly configured
+   - Check for CORS issues if using a different form submission service
+   - Test the form with console logging before deployment
+
+### Performance Optimization
+
+1. **Image optimization**
+
+   - All images should be properly sized and compressed
+   - Consider using WebP format with fallbacks for better performance
+
+2. **Code splitting**
+
+   - The app uses React.lazy for component loading
+   - Monitor bundle size with `npm run build -- --report`
+
+3. **Cache strategy**
+   - Configure long cache times for static assets
+   - Use versioned file names for proper cache busting
+
 ## Project Structure
 
-```
+```bash
 risk-pro-consulting/
 ├── public/               # Static assets
-│   └── RiskPro.PNG       # Logo image
+│   ├── RiskPro.PNG       # Logo image
+│   └── founder.jpg       # Founder image
 ├── src/                  # Source files
 │   ├── assets/           # Additional assets
 │   ├── components/       # React components
 │   │   ├── AboutUs.jsx   # About section component
+│   │   ├── BackToTop.jsx # Back to top button component
 │   │   ├── Contact.jsx   # Contact section component
 │   │   ├── Footer.jsx    # Footer component
 │   │   ├── Hero.jsx      # Hero/Home section component
@@ -97,7 +229,9 @@ risk-pro-consulting/
 │   └── main.jsx          # Entry point
 ├── eslint.config.js      # ESLint configuration
 ├── index.html            # HTML template
+├── vite.config.js        # Vite configuration
 ├── package.json          # Dependencies and scripts
+└── README.md             # Project documentation
 ├── tailwind.config.js    # Tailwind CSS configuration
 ├── vite.config.js        # Vite configuration
 └── README.md             # Project documentation
@@ -189,6 +323,5 @@ yarn preview
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
 
 &copy; 2025 Risk Pro Consulting. All Rights Reserved.
