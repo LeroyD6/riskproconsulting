@@ -8,9 +8,15 @@
   --bs-secondary: #6b7280;
   --bs-dark: #111827;
   --bs-light: #f9fafb;
-
   /* Custom transitions */
   --transition-standard: all 0.3s ease;
+  /* Scrollbar variables */
+  --scrollbar-width: 10px;
+  --scrollbar-track: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb: rgba(59, 130, 246, 0.5);
+  --scrollbar-thumb-hover: rgba(59, 130, 246, 0.7);
+  /* Enable both color schemes for UA widgets */
+  color-scheme: light dark;
 }
 
 [data-bs-theme="dark"] {
@@ -23,14 +29,7 @@
 body {
   font-family: "Inter", sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Custom scrollbar styling */
-:root {
-  --scrollbar-width: 10px;
-  --scrollbar-track: rgba(0, 0, 0, 0.05);
-  --scrollbar-thumb: rgba(59, 130, 246, 0.5);
-  --scrollbar-thumb-hover: rgba(59, 130, 246, 0.7);
+  scroll-behavior: smooth;
 }
 
 [data-bs-theme="dark"] {
@@ -44,26 +43,32 @@ body {
   width: var(--scrollbar-width);
   height: var(--scrollbar-width);
 }
-
 ::-webkit-scrollbar-track {
   background: var(--scrollbar-track);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
   border-radius: 5px;
   transition: background 0.3s ease;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover);
 }
 
+html {
+  /* Firefox-only custom scrollbar properties (ignored elsewhere) */
+  scrollbar-width: thin; /* Non-critical enhancement */
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); /* Non-critical enhancement */
+}
 
-* {
-  /* Only Firefox supports these properties */
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Background SVG for pages */
