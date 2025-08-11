@@ -1,0 +1,10 @@
+/* TEAM */
+Site: Risk Pro Consulting
+URL: https://riskproconsulting.co.za
+
+/* CONTACT */
+Email: jacques@riskproconsulting.co.za
+
+/* TECHNOLOGY */
+Built with: React 19, Vite, Bootstrap 5
+Hosting: cPanel
