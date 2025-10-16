@@ -1,10 +1,9 @@
-import React, { useState, useEffect, createContext, useContext } from "react";
-
-// Create a context for theme management
-const ThemeContext = createContext();
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 // Theme Provider component
-const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
   // Check for saved theme preference or use light as default
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -27,7 +26,6 @@ const ThemeProvider = ({ children }) => {
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
-// Custom hook to use the theme context
-const useTheme = () => useContext(ThemeContext);
-
-export { ThemeProvider, useTheme };
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

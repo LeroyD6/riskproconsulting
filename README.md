@@ -241,7 +241,7 @@ risk-pro-consulting/
 
 To build the project for production:
 
-```
+
 npm run build
 ```
 

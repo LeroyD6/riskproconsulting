@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { PhoneIcon, MailIcon, MapPinIcon } from "./Icons";
 import "../styles/contact.css";
 
 const Contact = () => {
@@ -11,26 +12,64 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState(""); // 'success' or 'error'
   const [validated, setValidated] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({});
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case "name":
+        return value.trim().length < 2 ? "Name must be at least 2 characters" : "";
+      case "email":
+        return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "Please enter a valid email" : "";
+      case "subject":
+        return value.trim().length < 3 ? "Subject must be at least 3 characters" : "";
+      case "message":
+        return value.trim().length < 10 ? "Message must be at least 10 characters" : "";
+      default:
+        return "";
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    // Real-time validation
+    if (validated) {
+      const error = validateField(name, value);
+      setFieldErrors((prev) => ({ ...prev, [name]: error }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+    setFieldErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   const handleSubmit = async (e) => {
     const form = e.currentTarget;
     e.preventDefault();
 
+    // Validate all fields
+    const errors = {};
+    Object.keys(formData).forEach((key) => {
+      const error = validateField(key, formData[key]);
+      if (error) errors[key] = error;
+    });
+
+    setFieldErrors(errors);
+    setValidated(true);
+
     // Check if the form is valid
-    if (form.checkValidity() === false) {
+    if (Object.keys(errors).length > 0 || form.checkValidity() === false) {
       e.stopPropagation();
-      setValidated(true);
       return;
     }
 
-    setValidated(true);
     setMessage("");
     setMessageType("");
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("https://formspree.io/f/xldlnzor", {
@@ -46,13 +85,16 @@ const Contact = () => {
         setMessageType("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
         setValidated(false);
+        setFieldErrors({});
       } else {
         setMessage("Sorry, there was a problem sending your message. Please try again later.");
         setMessageType("error");
       }
-    } catch (error) {
+    } catch {
       setMessage("Sorry, there was a problem sending your message. Please try again later.");
       setMessageType("error");
+    } finally {
+      setIsSubmitting(false);
     }
 
     // Auto-hide the message after 5 seconds
@@ -66,10 +108,10 @@ const Contact = () => {
     <section className="contact-section container px-4">
       <h2 className="contact-title">Contact Us</h2>
 
-      <div className="row g-5">
+      <div className="row g-5 fade-in-stagger">
         {/* Contact Information */}
         <div className="col-lg-5">
-          <div className="contact-card h-100 fade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="contact-card h-100">
             <h3 className="contact-info-title">Get in Touch</h3>
             <p className="contact-info-description">
               We are here to answer any questions you may have about our services. Reach out to us
@@ -78,55 +120,17 @@ const Contact = () => {
 
             <div className="contact-info-list mb-4">
               <div className="contact-info-item">
-                <svg
-                  className="contact-info-icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
+                <PhoneIcon className="contact-info-icon" />
                 <span>+27 73 995 5686</span>
               </div>
 
               <div className="contact-info-item">
-                <svg
-                  className="contact-info-icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
+                <MailIcon className="contact-info-icon" />
                 <span>jacques@riskproconsulting.co.za</span>
               </div>
 
               <div className="contact-info-item">
-                <svg
-                  className="contact-info-icon"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
+                <MapPinIcon className="contact-info-icon" />
                 <span>Durban, South Africa</span>
               </div>
             </div>
@@ -164,7 +168,7 @@ const Contact = () => {
 
         {/* Contact Form */}
         <div className="col-lg-7">
-          <div className="contact-card h-100 fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="contact-card h-100">
             <h3 className="contact-form-title">Send Us a Message</h3>
 
             {message && (
@@ -216,35 +220,108 @@ const Contact = () => {
               <div className="form-floating mb-3">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${
+                    validated && fieldErrors.name
+                      ? "is-invalid"
+                      : validated && !fieldErrors.name
+                      ? "is-valid"
+                      : ""
+                  }`}
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                />
+                <label htmlFor="name">Your Name</label>
+                {fieldErrors.name && <div className="invalid-feedback">{fieldErrors.name}</div>}
+              </div>
+
+              <div className="form-floating mb-3">
+                <input
+                  type="email"
+                  className={`form-control ${
+                    validated && fieldErrors.email
+                      ? "is-invalid"
+                      : validated && !fieldErrors.email
+                      ? "is-valid"
+                      : ""
+                  }`}
+                  id="email"
+                  name="email"
+                  placeholder="name@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  required
+                />
+                <label htmlFor="email">Email address</label>
+                {fieldErrors.email && <div className="invalid-feedback">{fieldErrors.email}</div>}
+              </div>
+
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className={`form-control ${
+                    validated && fieldErrors.subject
+                      ? "is-invalid"
+                      : validated && !fieldErrors.subject
+                      ? "is-valid"
+                      : ""
+                  }`}
                   id="subject"
                   name="subject"
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   required
                 />
                 <label htmlFor="subject">Subject</label>
-                <div className="invalid-feedback">Please enter a subject.</div>
+                {fieldErrors.subject && (
+                  <div className="invalid-feedback">{fieldErrors.subject}</div>
+                )}
               </div>
 
               <div className="form-floating mb-4">
                 <textarea
-                  className="form-control"
+                  className={`form-control ${
+                    validated && fieldErrors.message
+                      ? "is-invalid"
+                      : validated && !fieldErrors.message
+                      ? "is-valid"
+                      : ""
+                  }`}
                   id="message"
                   name="message"
                   placeholder="Leave a message here"
                   style={{ height: "150px" }}
                   value={formData.message}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   required
                 ></textarea>
                 <label htmlFor="message">Message</label>
-                <div className="invalid-feedback">Please enter your message.</div>
+                {fieldErrors.message && (
+                  <div className="invalid-feedback">{fieldErrors.message}</div>
+                )}
               </div>
 
-              <button type="submit" className="btn btn-primary w-100">
-                Send Message
+              <button type="submit" className="btn btn-primary w-100" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </button>
             </form>
           </div>

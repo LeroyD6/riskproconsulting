@@ -2,16 +2,16 @@
 
 .hero-section {
   position: relative;
-  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
   color: white;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  box-shadow: var(--shadow-2xl);
 }
 
 .hero-background-animation {
@@ -26,18 +26,19 @@
 
 .hero-content {
   position: relative;
-  z-index: 10;
+  z-index: var(--z-base);
   text-align: center;
-  padding: 2rem 1rem;
+  padding: var(--spacing-2xl) var(--spacing-md);
   width: 100%;
 }
 
 .hero-logo {
   height: 6rem;
   width: auto;
-  margin: 0 auto 1rem auto;
-  animation: fadeInFromBottom 0.8s ease-out forwards;
-  border-radius: 0.75rem;
+  margin: 0 auto var(--spacing-md) auto;
+  animation: fadeInFromBottom 0.8s var(--transition-timing) forwards;
+  border-radius: var(--radius-lg);
+  will-change: opacity, transform;
 }
 
 /* Make logo larger on medium screens and up */
@@ -48,45 +49,53 @@
 }
 
 .hero-title {
-  font-size: 3.75rem;
-  font-weight: bold;
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
   line-height: 1;
-  margin-bottom: 1rem;
-  animation: fadeInFromBottom 0.8s ease-out forwards;
+  margin-bottom: var(--spacing-md);
+  animation: fadeInFromBottom 0.8s var(--transition-timing) forwards;
+  will-change: opacity, transform;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 2.5rem;
-  animation: fadeInFromBottom 0.8s ease-out forwards;
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-2xl);
+  animation: fadeInFromBottom 0.8s var(--transition-timing) forwards;
   animation-delay: 0.4s;
+  will-change: opacity, transform;
 }
 
 .hero-cta-button {
   background-color: #ffffff;
-  color: #1d4ed8;
+  color: var(--color-primary-dark);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  animation: fadeInFromBottom 0.8s ease-out forwards;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-base) var(--transition-timing),
+    background-color var(--transition-base) var(--transition-timing),
+    color var(--transition-base) var(--transition-timing),
+    box-shadow var(--transition-base) var(--transition-timing);
+  animation: fadeInFromBottom 0.8s var(--transition-timing) forwards;
   animation-delay: 0.6s;
+  will-change: transform;
 }
 
 .hero-cta-button:hover {
   transform: scale(1.05);
-  background-color: #a8a8aa;
+  background-color: #d1d5db;
   color: #ffffff;
+  box-shadow: var(--shadow-xl);
 }
 
 /* Background animation circles */
 .hero-animation-circle {
   position: absolute;
   background-color: white;
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
+  will-change: transform, opacity;
 }
 
 .hero-animation-circle-1 {
@@ -122,19 +131,4 @@
   height: 8rem;
   top: 10%;
   right: 15%;
-}
-
-/* Dark mode hero styles */
-[data-bs-theme="dark"] .hero-section {
-  background: linear-gradient(to right, #545961, #41444e);
-}
-
-[data-bs-theme="dark"] .hero-cta-button {
-  background-color: #f3f4f6;
-  color: #1f2937;
-}
-
-[data-bs-theme="dark"] .hero-cta-button:hover {
-  background-color: #1c5cdb;
-  color: #ffffff;
 }

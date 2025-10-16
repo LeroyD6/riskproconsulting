@@ -1,18 +1,24 @@
 /* Main CSS file - imports all modular component styles */
 
+/* Design tokens - MUST be first */
+@import "./styles/tokens.css";
+
 /* Global styles and theme management */
-@import './styles/globals.css';
+@import "./styles/globals.css";
+
+/* Shared component styles */
+@import "./styles/card.css";
 
 /* Utility classes */
-@import './styles/utilities.css';
+@import "./styles/utilities.css";
 
 /* Animation definitions */
-@import './styles/animations.css';
+@import "./styles/animations.css";
 
 /* Component-specific styles */
-@import './styles/navbar.css';
-@import './styles/hero.css';
-@import './styles/about.css';
-@import './styles/services.css';
-@import './styles/contact.css';
-@import './styles/footer.css';
+@import "./styles/navbar.css";
+@import "./styles/hero.css";
+@import "./styles/about.css";
+@import "./styles/services.css";
+@import "./styles/contact.css";
+@import "./styles/footer.css";

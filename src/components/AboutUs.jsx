@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/about.css";
 
 const AboutUs = () => {
@@ -7,15 +6,12 @@ const AboutUs = () => {
       <h2 className="about-title">About Us</h2>
 
       {/* Vision and Mission Cards */}
-      <div className="row g-4 mb-5">
+      <div className="row g-4 mb-5 fade-in-stagger">
         <div className="col-lg-6">
-          <div
-            className="card h-100 shadow-custom border-0 fade-in"
-            style={{ animationDelay: "0.2s" }}
-          >
+          <div className="card h-100 shadow-custom border-0">
             <div className="card-body">
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">Our Vision</h3>
-              <p className="card-text text-dark lh-lg fs-5">
+              <p className="card-text text-body-lg">
                 To be one of South Africa's leading integrated safety and security advisory firms.
                 Delivering proactive, compliant, and reliable solutions that protect people, assets,
                 and operations.
@@ -24,13 +20,10 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="col-lg-6">
-          <div
-            className="card h-100 shadow-custom border-0 fade-in"
-            style={{ animationDelay: "0.4s" }}
-          >
+          <div className="card h-100 shadow-custom border-0">
             <div className="card-body">
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">Our Mission</h3>
-              <p className="card-text text-dark lh-lg fs-5">
+              <p className="card-text text-body-lg">
                 Risk Pro Consulting empowers businesses by offering comprehensive risk management,
                 safety compliance, and security consulting services tailored to all industries,
                 thereby ensuring operational continuity and efficiency.
@@ -43,12 +36,12 @@ const AboutUs = () => {
       {/* Founder Background Card */}
       <div className="row mb-5">
         <div className="col-12">
-          <div className="card shadow-custom border-0 fade-in" style={{ animationDelay: "0.6s" }}>
+          <div className="card shadow-custom border-0 fade-in">
             <div className="card-body p-lg-5">
               <div className="row g-5 align-items-center">
                 <div className="col-lg-4 text-center">
                   <img
-                    src="./founder.jpg"
+                    src="/founder.jpg"
                     alt="Founder - Jacques Botha"
                     className="founder img-fluid"
                   />
@@ -57,7 +50,7 @@ const AboutUs = () => {
                   <h3 className="card-title fs-2 fw-semibold text-primary mb-4">
                     Founder Background - Jacques Botha
                   </h3>
-                  <p className="card-text text-dark lh-lg fs-5 mb-3">
+                  <p className="card-text text-body-lg mb-3">
                     With extensive experience in managing site safety and security operations, our
                     Director brings a strong foundation in engineering coupled with hands-on
                     leadership in compliance and risk management. His career began in engineering,
@@ -66,7 +59,7 @@ const AboutUs = () => {
                     multiple sites, ensuring full compliance with health, safety, and security
                     regulations.
                   </p>
-                  <p className="card-text text-dark lh-lg fs-5 mb-0">
+                  <p className="card-text text-body-lg mb-0">
                     His responsibilities have included managing complex security operations during
                     high-risk events such as strikes, emergency incidents, and on-site
                     investigations. He has also led the development and implementation of Standard
@@ -87,7 +80,7 @@ const AboutUs = () => {
           <div className="card h-100 shadow-custom border-0">
             <div className="card-body">
               <h3 className="card-title fs-4 fw-semibold text-primary mb-3">Who We Are</h3>
-              <ul className="list-unstyled text-dark mb-0">
+              <ul className="list-unstyled text-body mb-0">
                 <li className="mb-2">
                   • Industry veterans with firsthand expertise in risk, safety, and security.
                 </li>
@@ -105,8 +98,8 @@ const AboutUs = () => {
               <h3 className="card-title fs-4 fw-semibold text-primary mb-3">
                 Why Choose Risk Pro Consulting?
               </h3>
-              <p>Because we:</p>
-              <ul className="list-unstyled text-dark mb-0">
+              <p className="text-body">Because we:</p>
+              <ul className="list-unstyled text-body mb-0">
                 <li className="mb-2">
                   • Possess deep compliance knowledge across various industries.
                 </li>

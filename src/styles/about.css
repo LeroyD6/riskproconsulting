@@ -1,22 +1,16 @@
-/* Smooth card hover transitions */
-.card,
-.shadow-custom {
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 /* About Us component specific styles */
 
 .about-section {
-  padding-top: 3rem;
-  padding-bottom: 5rem;
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-4xl);
 }
 
 .about-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #000000;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
   position: relative;
   display: inline-block;
   left: 50%;
@@ -28,48 +22,58 @@
   display: block;
   width: 80px;
   height: 4px;
-  background-color: var(--bs-body-color); /* Use theme variable instead of hardcoded color */
-  margin: 0.75rem auto 3rem;
-  border-radius: 2px;
+  background-color: var(--color-primary);
+  margin: var(--spacing-lg) auto var(--spacing-3xl);
+  border-radius: var(--radius-sm);
 }
 
 .about-card:hover {
   transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4);
-  border-color: rgba(59, 131, 246, 0.925);
+  background: var(--glass-background-hover);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--color-border-hover);
   border-width: 2px;
 }
 
 .founder {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+  border-radius: var(--radius-circle);
   object-fit: cover;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  border: 3px solid #fff;
+  box-shadow: var(--shadow-xl);
+  border: 4px solid var(--color-primary);
+  transition: transform var(--transition-base) var(--transition-timing),
+    box-shadow var(--transition-base) var(--transition-timing),
+    border-color var(--transition-base) var(--transition-timing);
+  will-change: transform;
+}
+
+.founder:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-primary-hover);
 }
 
 @media (max-width: 991.98px) {
   .founder {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-lg);
   }
 }
 
 .about-card h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #343a40; /* Dark grey to match section titles */
-  margin-bottom: 1rem;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
 }
 
 .about-section-title {
-  font-size: 1.85rem;
-  font-weight: 600;
-  color: #343a40; /* Dark grey for subheadings */
-  margin-bottom: 1.5rem;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
   text-align: center;
-  padding: 0 1rem;
+  padding: 0 var(--spacing-md);
   position: relative;
 }
 
@@ -78,125 +82,78 @@
   display: block;
   width: 60px;
   height: 3px;
-  background-color: var(--bs-secondary); /* Use theme variable instead of hardcoded color */
-  margin: 0.5rem auto 1rem;
-  border-radius: 2px;
+  background-color: var(--color-primary);
+  margin: var(--spacing-sm) auto var(--spacing-md);
+  border-radius: var(--radius-sm);
 }
 
 .about-card p {
-  color: #111827;
+  color: var(--color-text);
   line-height: 1.8;
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
   margin-bottom: 0;
 }
 
 .about-card p.mt-3 {
-  margin-top: 1rem;
+  margin-top: var(--spacing-md);
 }
 
 .about-features-grid {
-  margin-top: 2rem;
+  margin-top: var(--spacing-2xl);
 }
 
 .about-feature-card {
-  background: rgba(255, 255, 255, 0.85);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1.5rem;
-  transition: all 0.3s ease;
+  background: var(--glass-background);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+  border: 1px solid var(--glass-border);
+  padding: var(--spacing-lg);
+  transition: var(--transition-all);
   height: 100%;
 }
 
-.about-feature-card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #3b82f6;
-  margin-bottom: 1rem;
+.about-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--color-border-hover);
 }
 
-/* Dark mode about styles */
-[data-bs-theme="dark"] .about-title {
-  color: #ffffff;
+.about-feature-card h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
 }
+
+/* Bootstrap card overrides for about section */
 .about-section .card {
-  background: rgba(255, 255, 255, 0.85) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 0.75rem !important;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) !important;
-  transition: all 0.3s ease !important;
+  background: var(--glass-background);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+  transition: var(--transition-all);
 }
 
 .about-section .card:hover {
-  transform: translateY(-6px) !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.4) !important;
-  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  transform: translateY(-6px);
+  background: var(--glass-background-hover);
+  box-shadow: var(--shadow-glass-hover);
+  border-color: var(--color-border-hover);
 }
 
 .about-section .card-title {
-  transition: color 0.3s ease;
+  transition: var(--transition-colors);
+  color: var(--color-text-secondary);
 }
 
 .about-section .card:hover .card-title {
-  color: #2563eb !important;
+  color: var(--color-primary-hover);
 }
 
-[data-bs-theme="dark"] .about-title {
-  color: #4dabf7; /* Light blue for dark mode */
-}
-
-[data-bs-theme="dark"] .about-section-title {
-  color: #e9ecef; /* Light grey for dark mode */
-}
-
-[data-bs-theme="dark"] .about-card h3 {
-  color: #74c0fc; /* Lighter blue for card headings in dark mode */
-}
-
-[data-bs-theme="dark"] .about-card {
-  background: rgba(31, 41, 55, 0.8);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-bs-theme="dark"] .about-card:hover {
-  background: rgba(31, 41, 55, 0.9);
-  border-color: rgba(96, 165, 250, 0.3);
-}
-
-[data-bs-theme="dark"] .about-card p {
-  color: #ffffff;
-}
-
-[data-bs-theme="dark"] .about-feature-card {
-  background: rgba(31, 41, 55, 0.8);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-bs-theme="dark"] .about-feature-card:hover {
-  background: rgba(31, 41, 55, 0.9);
-  border-color: rgba(96, 165, 250, 0.3);
-}
-
-[data-bs-theme="dark"] .about-feature-list li {
-  color: #ffffff;
-}
-
-/* Dark mode Bootstrap cards */
-[data-bs-theme="dark"] .about-section .card {
-  background: rgba(31, 41, 55, 0.8) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-[data-bs-theme="dark"] .about-section .card:hover {
-  background: rgba(31, 41, 55, 0.9) !important;
-  border: 1px solid rgba(96, 165, 250, 0.3) !important;
-}
-
-[data-bs-theme="dark"] .about-section .card-text {
-  color: #ffffff !important;
+.about-section .card-text {
+  color: var(--color-text);
 }

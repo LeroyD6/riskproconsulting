@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/services.css";
 
 const Services = () => {
@@ -161,20 +161,17 @@ const Services = () => {
       <h2 className="services-title">Our Services</h2>
 
       {/* Core Services Section */}
-      <div className="services-section-container fade-in" style={{ animationDelay: "0.1s" }}>
+      <div className="services-section-container fade-in">
         <h3 className="services-section-title">Core Services</h3>
         <p className="services-intro">
           At Risk Pro Consulting, we offer comprehensive safety and security solutions tailored to
           your specific needs. We assist in achieving compliance, risk mitigation and operational
           efficiency within your organization. Explore our core services below:
         </p>
-        <div className="row g-4">
+        <div className="row g-4 fade-in-stagger">
           {coreServices.map((service, index) => (
             <div className="col-md-6 col-lg-4 d-flex align-items-stretch" key={index}>
-              <div
-                className="card services-card h-100 fade-in"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-              >
+              <div className="card services-card h-100">
                 <div className="card-body d-flex flex-column">
                   <div className="service-icon mb-3">
                     {service.icon === "shield-check" && (
@@ -288,20 +285,17 @@ const Services = () => {
       </div>
 
       {/*Packages Section */}
-      <div className="services-section-container fade-in" style={{ animationDelay: "0.3s" }}>
+      <div className="services-section-container fade-in">
         <h3 className="services-section-title">Service Packages</h3>
         <p className="services-intro">
           Choose from our carefully designed service packages that address specific safety and
           security needs. Each package is structured to deliver maximum value while addressing your
           unique requirements:
         </p>
-        <div className="row g-4">
+        <div className="row g-4 fade-in-stagger">
           {pricingPackages.map((pkg, index) => (
             <div key={index} className="col-lg-4 col-md-6">
-              <div
-                className="pricing-card fade-in"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-              >
+              <div className="pricing-card">
                 <div>
                   <h4>{pkg.name}</h4>
                   <p className="pricing-description">{pkg.includes}</p>
@@ -338,19 +332,16 @@ const Services = () => {
       </div>
 
       {/* Sectors Section */}
-      <div className="services-section-container fade-in" style={{ animationDelay: "0.5s" }}>
+      {/* Sectors Section */}
+      <div className="services-section-container fade-in">
         <h3 className="services-section-title">Sectors We Work With</h3>
         <p className="services-intro">
           Our expertise spans across various industries, providing specialised safety and security
           solutions for the following sectors:
         </p>
-        <div className="sectors-container">
+        <div className="sectors-container fade-in-stagger">
           {sectors.map((sector, index) => (
-            <span
-              key={index}
-              className="sector-badge fade-in"
-              style={{ animationDelay: `${0.6 + index * 0.1}s` }}
-            >
+            <span key={index} className="sector-badge">
               {sector}
             </span>
           ))}

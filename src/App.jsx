@@ -1,4 +1,5 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./index.css";
 
@@ -7,6 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Lazy load page components for better performance
 const Hero = lazy(() => import("./components/Hero"));
@@ -16,72 +18,36 @@ const Contact = lazy(() => import("./components/Contact"));
 
 // Main App Component
 const App = () => {
-  const [currentPage, setCurrentPage] = useState("home"); // Default page
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Check for dark mode changes
-  useEffect(() => {
-    const checkDarkMode = () => {
-      const isDark = document.documentElement.getAttribute("data-bs-theme") === "dark";
-      setDarkMode(isDark);
-    };
-
-    // Initial check - force light mode by default
-    document.documentElement.setAttribute("data-bs-theme", "light");
-    checkDarkMode();
-
-    // Create observer to watch for attribute changes
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-bs-theme"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case "home":
-        return <Hero setCurrentPage={setCurrentPage} />;
-      case "about":
-        return <AboutUs />;
-      case "services":
-        try {
-          return <Services />;
-        } catch (error) {
-          console.error("Error rendering Services:", error);
-          return (
-            <div className="container py-5">Error loading services. Please try again later.</div>
-          );
-        }
-      case "contact":
-        return <Contact />;
-      default:
-        return <Hero setCurrentPage={setCurrentPage} />;
-    }
-  };
-
   return (
     <ThemeProvider>
-      <div className="d-flex flex-column min-vh-100 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-        <Navbar setCurrentPage={setCurrentPage} />
-        <Suspense
-          fallback={
-            <div className="d-flex justify-content-center align-items-center py-5">
-              <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div>
-          }
-        >
-          <main className="flex-grow-1 position-relative">
-            <div className={`page-container fade-in page-${currentPage}`}>{renderPage()}</div>
-          </main>
-        </Suspense>
-        <Footer />
-        <BackToTop />
-      </div>
+      <ErrorBoundary>
+        <Router>
+          <div className="d-flex flex-column min-vh-100">
+            <Navbar />
+            <Suspense
+              fallback={
+                <div className="d-flex justify-content-center align-items-center py-5">
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              }
+            >
+              <main className="flex-grow-1 position-relative">
+                <Routes>
+                  <Route path="/" element={<Hero />} />
+                  <Route path="/about" element={<AboutUs />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<Hero />} />
+                </Routes>
+              </main>
+            </Suspense>
+            <Footer />
+            <BackToTop />
+          </div>
+        </Router>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 };

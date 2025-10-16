@@ -1,19 +1,20 @@
 .footer-section {
-  background-color: var(--bs-dark);
-  color: var(--bs-light);
+  background-color: #111827; /* Dark background in both light and dark mode */
+  color: #ffffff; /* White text for contrast */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-colors);
 }
 
 .footer-copyright {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   opacity: 0.8;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7); /* Light gray text on dark background */
 }
 
 .footer-tagline {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
-  color: var(--bs-primary-subtle);
+  color: #60a5fa; /* Bright blue for visibility on dark background */
 }
 
 .footer-social-container {
@@ -28,26 +29,28 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--bs-light);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-circle);
+  background: rgba(255, 255, 255, 0.1); /* Subtle glass effect on dark footer */
+  color: #ffffff;
+  transition: var(--transition-all);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-social-link:hover {
   transform: translateY(-3px);
-  background: var(--bs-primary);
-  color: var(--bs-light);
-  box-shadow: 0 4px 8px rgba(var(--bs-primary-rgb), 0.4);
+  background: #60a5fa; /* Bright blue hover on dark footer */
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
+  border-color: #60a5fa;
 }
 
 .footer-logo {
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-base) var(--transition-timing);
   filter: brightness(1.2) contrast(1.1);
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 5px;
-  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background on dark footer */
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
 }
 
 .footer-logo:hover {
