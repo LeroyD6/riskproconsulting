@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
 import { MoonIcon, SunIcon } from "./Icons";
 import "../styles/navbar.css";
+import Collapse from "bootstrap/js/dist/collapse";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -15,14 +16,16 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
+  useEffect(() => {
+    if (!navbarCollapseRef.current) return;
+    const instance = Collapse.getOrCreateInstance(navbarCollapseRef.current, { toggle: false });
+    return () => instance.dispose();
+  }, []);
+
   const handleNavClick = () => {
-    // Close the navbar on mobile after clicking a link using Bootstrap instance
-    if (navbarCollapseRef.current) {
-      const bsCollapse = window.bootstrap?.Collapse?.getInstance(navbarCollapseRef.current);
-      if (bsCollapse) {
-        bsCollapse.hide();
-      }
-    }
+    if (!navbarCollapseRef.current) return;
+    const instance = Collapse.getInstance(navbarCollapseRef.current);
+    instance?.hide();
   };
 
   return (
