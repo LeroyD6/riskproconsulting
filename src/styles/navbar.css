@@ -5,12 +5,13 @@
 }
 
 .navbar-glass {
-  background: rgba(255, 255, 255, 0.85) !important;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-background) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
   padding-top: 0.5rem !important;
   padding-bottom: 0.5rem !important;
+  transition: background-color var(--transition-base) ease, border-color var(--transition-base) ease;
 }
 
 .navbar-container {

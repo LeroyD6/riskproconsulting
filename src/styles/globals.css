@@ -17,8 +17,8 @@
   --scrollbar-thumb: rgba(59, 130, 246, 0.5);
   --scrollbar-thumb-hover: rgba(59, 130, 246, 0.7);
 
-  /* Enable both color schemes for UA widgets */
-  color-scheme: light dark;
+  /* Force light color scheme for UA widgets to match default theme */
+  color-scheme: light;
 }
 
 [data-bs-theme="dark"] {
@@ -34,6 +34,14 @@ body {
   scroll-behavior: smooth;
   background-color: var(--color-background);
   color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--color-primary-light);
+  color: #ffffff;
 }
 
 /* Accessibility: Focus visible styles for keyboard navigation */
@@ -75,19 +83,23 @@ select:focus-visible {
 
 /* Webkit browsers like Chrome, Safari */
 ::-webkit-scrollbar {
-  width: var(--scrollbar-width);
-  height: var(--scrollbar-width);
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
   transition: background 0.3s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover);
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
 html {

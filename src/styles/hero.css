@@ -55,6 +55,7 @@
   margin-bottom: var(--spacing-md);
   animation: fadeInFromBottom 0.8s var(--transition-timing) forwards;
   will-change: opacity, transform;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hero-subtitle {

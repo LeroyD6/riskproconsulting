@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
 import { MoonIcon, SunIcon } from "./Icons";
 import "../styles/navbar.css";
@@ -8,6 +8,7 @@ import Collapse from "bootstrap/js/dist/collapse";
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const navbarCollapseRef = useRef(null);
+  const location = useLocation();
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -22,10 +23,31 @@ const Navbar = () => {
     return () => instance.dispose();
   }, []);
 
+  // Close menu when route changes
+  useEffect(() => {
+    if (navbarCollapseRef.current && navbarCollapseRef.current.classList.contains("show")) {
+      const instance = Collapse.getOrCreateInstance(navbarCollapseRef.current);
+      instance.hide();
+    }
+  }, [location]);
+
+  // Close menu on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (navbarCollapseRef.current && navbarCollapseRef.current.classList.contains("show")) {
+        const instance = Collapse.getOrCreateInstance(navbarCollapseRef.current);
+        instance.hide();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleNavClick = () => {
     if (!navbarCollapseRef.current) return;
-    const instance = Collapse.getInstance(navbarCollapseRef.current);
-    instance?.hide();
+    const instance = Collapse.getOrCreateInstance(navbarCollapseRef.current);
+    instance.hide();
   };
 
   return (
