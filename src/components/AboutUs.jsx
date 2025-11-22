@@ -8,7 +8,7 @@ const AboutUs = () => {
       {/* Vision and Mission Cards */}
       <div className="row g-4 mb-5 fade-in-stagger">
         <div className="col-lg-6">
-          <div className="card h-100 shadow-custom border-0">
+          <div className="card about-card h-100 shadow-custom border-0">
             <div className="card-body">
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">Our Vision</h3>
               <p className="card-text text-body-lg">
@@ -20,7 +20,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="col-lg-6">
-          <div className="card h-100 shadow-custom border-0">
+          <div className="card about-card h-100 shadow-custom border-0">
             <div className="card-body">
               <h3 className="card-title fs-2 fw-semibold text-primary mb-4">Our Mission</h3>
               <p className="card-text text-body-lg">
@@ -77,7 +77,7 @@ const AboutUs = () => {
       {/* Who We Are and Why Choose Us Cards */}
       <div className="row g-4">
         <div className="col-md-6">
-          <div className="card h-100 shadow-custom border-0">
+          <div className="card about-card h-100 shadow-custom border-0">
             <div className="card-body">
               <h3 className="card-title fs-4 fw-semibold text-primary mb-3">Who We Are</h3>
               <ul className="list-unstyled text-body mb-0">
@@ -93,7 +93,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="col-md-6">
-          <div className="card h-100 shadow-custom border-0">
+          <div className="card about-card h-100 shadow-custom border-0">
             <div className="card-body">
               <h3 className="card-title fs-4 fw-semibold text-primary mb-3">
                 Why Choose Risk Pro Consulting?

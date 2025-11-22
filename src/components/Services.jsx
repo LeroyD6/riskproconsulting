@@ -171,7 +171,7 @@ const Services = () => {
         <div className="row g-4 fade-in-stagger">
           {coreServices.map((service, index) => (
             <div className="col-md-6 col-lg-4 d-flex align-items-stretch" key={index}>
-              <div className="card services-card h-100">
+              <div className="card services-card card-glass hover-lift h-100">
                 <div className="card-body d-flex flex-column">
                   <div className="service-icon mb-3">
                     {service.icon === "shield-check" && (

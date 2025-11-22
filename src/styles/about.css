@@ -8,7 +8,16 @@
 .about-title {
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-text);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary) 50%,
+    var(--color-primary-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   text-align: center;
   margin-bottom: var(--spacing-md);
   position: relative;
@@ -22,9 +31,9 @@
   display: block;
   width: 80px;
   height: 4px;
-  background-color: var(--color-primary);
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
   margin: var(--spacing-lg) auto var(--spacing-3xl);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
 }
 
 .about-card:hover {
